@@ -4,7 +4,6 @@
 //
 
 #import "PGMidi.h"
-//#import "PGArc.h"
 #import <mach/mach_time.h>
 
 #if TARGET_IPHONE_SIMULATOR || TARGET_OS_IPHONE
@@ -620,7 +619,7 @@ void PGMIDINotifyProc(const MIDINotification *message, void *refCon)
 
 - (void) sendBytes:(const UInt8*)data size:(UInt32)size
 {
-    NSLog(@"%s(%u bytes to core MIDI)", __func__, unsigned(size));
+    NSLog(@"%s(%u bytes to core MIDI)", __func__, size);
     assert(size < 65536);
     Byte packetBuffer[size+100];
     MIDIPacketList *packetList = (MIDIPacketList*)packetBuffer;

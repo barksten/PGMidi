@@ -51,7 +51,7 @@
 - (void) findMatchingSource:(PGMidiSource**)source
              andDestination:(PGMidiDestination**)destination
 {
-    return [self findMatchingSource:source andDestination:destination avoidNames:nil];
+    [self findMatchingSource:source andDestination:destination avoidNames:nil];
 }
 
 @end
