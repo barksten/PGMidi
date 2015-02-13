@@ -140,7 +140,7 @@ void PGMIDIReadProc(const MIDIPacketList *pktlist, void *readProcRefCon, void *s
 {
     @autoreleasepool
     {
-        PGMidiSource *self = (PGMidiSource *)CFBridgingRelease(srcConnRefCon);
+        PGMidiSource *self = (__bridge PGMidiSource *)srcConnRefCon;
         [self midiRead:pktlist];
     }
 }
@@ -603,7 +603,7 @@ void PGMIDIVirtualDestinationReadProc(const MIDIPacketList *pktlist, void *readP
 
 void PGMIDINotifyProc(const MIDINotification *message, void *refCon)
 {
-    PGMidi *self = (PGMidi *)CFBridgingRelease(refCon);
+    PGMidi *self = (__bridge PGMidi *)refCon;
     [self midiNotify:message];
 }
 
