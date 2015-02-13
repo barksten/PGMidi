@@ -9,7 +9,6 @@
 #import "MidiMonitorViewController.h"
 
 #import "PGMidi.h"
-#import "iOSVersionDetection.h"
 #import <CoreMIDI/CoreMIDI.h>
 
 UInt8 RandomNoteNumber() { return UInt8(rand() / (RAND_MAX / 127)); }
@@ -35,14 +34,7 @@ UInt8 RandomNoteNumber() { return UInt8(rand() / (RAND_MAX / 127)); }
     [self clearTextView];
     [self updateCountLabel];
 
-    IF_IOS_HAS_COREMIDI
-    (
-         [self addString:@"This iOS Version supports CoreMIDI"];
-    )
-    else
-    {
-        [self addString:@"You are running iOS before 4.2. CoreMIDI is not supported."];
-    }
+    [self addString:@"This iOS Version supports CoreMIDI"];
 }
 
 #pragma mark IBActions

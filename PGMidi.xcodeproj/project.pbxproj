@@ -51,7 +51,6 @@
 		C14323211A64162000CEB4F5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		C14323231A641EE600CEB4F5 /* PGMidi.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = PGMidi.podspec; sourceTree = "<group>"; };
 		C1763E411266F0190032E953 /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
-		C1763E6F1266F7F60032E953 /* iOSVersionDetection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOSVersionDetection.h; sourceTree = "<group>"; };
 		C1763E701266F7F60032E953 /* PGMidi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGMidi.h; sourceTree = "<group>"; };
 		C1763E711266F7F60032E953 /* PGMidi.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PGMidi.mm; sourceTree = "<group>"; };
 		C1763E801266FAEB0032E953 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
@@ -144,7 +143,6 @@
 		C1763E6A1266F69F0032E953 /* PGMidi */ = {
 			isa = PBXGroup;
 			children = (
-				C1763E6F1266F7F60032E953 /* iOSVersionDetection.h */,
 				C139406414DF32E20054551E /* PGArc.h */,
 				C1763E701266F7F60032E953 /* PGMidi.h */,
 				C1763E711266F7F60032E953 /* PGMidi.mm */,
