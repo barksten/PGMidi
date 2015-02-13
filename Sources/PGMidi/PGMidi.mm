@@ -80,11 +80,7 @@ BOOL IsNetworkSession(MIDIEndpointRef ref)
     {
         midi                = m;
         endpoint            = e;
-#if ! PGMIDI_ARC
-        name                = [NameOfEndpoint(e) retain];
-#else
         name                = NameOfEndpoint(e);
-#endif
         isNetworkSession    = IsNetworkSession(e);
     }
     return self;
@@ -108,15 +104,6 @@ BOOL IsNetworkSession(MIDIEndpointRef ref)
     }
     return self;
 }
-
-#if ! PGMIDI_ARC
-- (void)dealloc 
-{
-    self.delegates = nil;
-    [super dealloc];
-}
-#endif
-
 - (void)addDelegate:(id<PGMidiSourceDelegate>)delegate
 {
     if (![_delegates containsObject:[NSValue valueWithPointer:(void*)delegate]])
@@ -300,12 +287,6 @@ void PGMIDIVirtualDestinationReadProc(const MIDIPacketList *pktlist, void *readP
     self.virtualEndpointName = nil;
     self.virtualSourceEnabled = NO;
     self.virtualDestinationEnabled = NO;
-
-#if ! PGMIDI_ARC
-    [sources release];
-    [destinations release];
-    [super dealloc];
-#endif
 }
 
 - (NSUInteger) numberOfConnections
@@ -491,10 +472,6 @@ void PGMIDIVirtualDestinationReadProc(const MIDIPacketList *pktlist, void *readP
                                                             object:self 
                                                           userInfo:[NSDictionary dictionaryWithObject:source 
                                                                                                forKey:PGMidiConnectionKey]];
-        
-#if ! PGMIDI_ARC
-        [source release];
-#endif
     }
 }
 
@@ -524,9 +501,6 @@ void PGMIDIVirtualDestinationReadProc(const MIDIPacketList *pktlist, void *readP
                                                             object:self 
                                                           userInfo:[NSDictionary dictionaryWithObject:destination 
                                                                                                forKey:PGMidiConnectionKey]];
-#if ! PGMIDI_ARC
-        [destination release];
-#endif
     }
 }
 

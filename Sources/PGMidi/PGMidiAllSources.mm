@@ -16,9 +16,6 @@
 - (void) dealloc
 {
     self.midi = nil;
-#if ! PGMIDI_ARC
-    [super dealloc];
-#endif
 }
 
 @synthesize midi, delegate;

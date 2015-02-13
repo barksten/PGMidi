@@ -36,13 +36,4 @@
 	return YES;
 }
 
-- (void)dealloc
-{
-#if ! PGMIDI_ARC
-    [viewController release];
-    [window release];
-    [super dealloc];
-#endif
-}
-
 @end

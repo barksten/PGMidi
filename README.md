@@ -20,7 +20,7 @@ The demo application presents a message when MIDI devices are attached and detac
 
 It works on iPhones or iPads, but will only do something useful if the device is running iOS 4.2 or higher (CoreMidi is not available in earlier iOS versions).
 
-The latest version of the project supports ARC and non-ARC projects from the same source.
+The latest version of the project supports only ARC.
 
 
 What to look at

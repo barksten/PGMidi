@@ -18,21 +18,10 @@
     PGMidi *midi;
 }
 
-#if ! __has_feature(objc_arc)
-
-@property (nonatomic,retain) IBOutlet UILabel    *countLabel;
-@property (nonatomic,retain) IBOutlet UITextView *textView;
-
-@property (nonatomic,assign) PGMidi *midi;
-
-#else
-
 @property (nonatomic,strong) IBOutlet UILabel    *countLabel;
 @property (nonatomic,strong) IBOutlet UITextView *textView;
 
 @property (nonatomic,strong) PGMidi *midi;
-
-#endif
 
 - (IBAction) clearTextView;
 - (IBAction) listAllInterfaces;
