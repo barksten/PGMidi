@@ -62,6 +62,8 @@ extern NSString * const PGMidiConnectionKey;
 ///         HandlePacketData(packet->data, packet->length);
 ///         packet = MIDIPacketNext(packet);
 ///     }
+
+@required
 - (void) midiSource:(PGMidiSource*)input midiReceived:(const MIDIPacketList *)packetList;
 
 @end
@@ -108,13 +110,13 @@ extern NSString * const PGMidiConnectionKey;
 /// @see PGMidiDelegate
 @interface PGMidi : NSObject
 
-@property (nonatomic,assign)   id<PGMidiDelegate> delegate;
+@property (nonatomic,weak)   id<PGMidiDelegate> delegate;
 @property (nonatomic,readonly) NSUInteger         numberOfConnections;
 @property (nonatomic,readonly) NSMutableArray    *sources;
 @property (nonatomic,readonly) NSMutableArray    *destinations;
 @property (nonatomic,readonly) PGMidiSource      *virtualDestinationSource;
 @property (nonatomic,readonly) PGMidiDestination *virtualSourceDestination;
-@property (nonatomic,retain)   NSString          *virtualEndpointName;
+@property (nonatomic,strong)   NSString          *virtualEndpointName;
 @property (nonatomic,assign)   BOOL               networkEnabled;
 
 /// Remember to set the UIBackgroundModes plist property for virtual sources to work
