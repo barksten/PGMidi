@@ -10,7 +10,6 @@
 
 #import "MidiMonitorViewController.h"
 #import "PGMidi.h"
-#import "PGArc.h"
 
 @implementation MidiMonitorAppDelegate
 

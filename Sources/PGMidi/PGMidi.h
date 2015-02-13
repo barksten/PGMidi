@@ -11,8 +11,6 @@
 
 #import <CoreMIDI/CoreMIDI.h>
 
-#import "PGArc.h"
-
 @class PGMidi;
 @class PGMidiSource;
 

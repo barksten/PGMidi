@@ -4,7 +4,7 @@
 //
 
 #import "PGMidi.h"
-#import "PGArc.h"
+//#import "PGArc.h"
 #import <mach/mach_time.h>
 
 #if TARGET_IPHONE_SIMULATOR || TARGET_OS_IPHONE
@@ -57,9 +57,8 @@ BOOL IsNetworkSession(MIDIEndpointRef ref)
     OSStatus s = MIDIObjectGetProperties(entity, &properties, true);
     if (!s)
     {
-        NSDictionary *dictionary = arc_cast<NSDictionary>(properties);
+        NSDictionary *dictionary = CFBridgingRelease(properties);
         hasMidiRtpKey = [dictionary valueForKey:@"apple.midirtp.session"] != nil;
-        CFRelease(properties);
     }
 
     return hasMidiRtpKey;
@@ -135,7 +134,7 @@ void PGMIDIReadProc(const MIDIPacketList *pktlist, void *readProcRefCon, void *s
 {
     @autoreleasepool
     {
-        PGMidiSource *self = arc_cast<PGMidiSource>(srcConnRefCon);
+        PGMidiSource *self = (PGMidiSource *)CFBridgingRelease(srcConnRefCon);
         [self midiRead:pktlist];
     }
 }
@@ -250,7 +249,7 @@ void PGMIDIVirtualDestinationReadProc(const MIDIPacketList *pktlist, void *readP
         s = MIDIOutputPortCreate(client, (CFStringRef)@"PGMidi Output Port", &outputPort);
         NSLogError(s, @"Create output MIDI port");
 
-        s = MIDIInputPortCreate(client, (CFStringRef)@"PGMidi Input Port", PGMIDIReadProc, arc_cast<void>(self), &inputPort);
+        s = MIDIInputPortCreate(client, (CFStringRef)@"PGMidi Input Port", PGMIDIReadProc, &self, &inputPort);
         NSLogError(s, @"Create input MIDI port");
 
         [self scanExistingDevices];
@@ -447,7 +446,7 @@ void PGMIDIVirtualDestinationReadProc(const MIDIPacketList *pktlist, void *readP
                                                         object:self 
                                                       userInfo:@{PGMidiConnectionKey: source}];
     
-    OSStatus s = MIDIPortConnectSource(inputPort, endpoint, arc_cast<void>(source));
+    OSStatus s = MIDIPortConnectSource(inputPort, endpoint, &source);
     NSLogError(s, @"Connecting to MIDI source");
 }
 
@@ -598,7 +597,7 @@ void PGMIDIVirtualDestinationReadProc(const MIDIPacketList *pktlist, void *readP
 
 void PGMIDINotifyProc(const MIDINotification *message, void *refCon)
 {
-    PGMidi *self = arc_cast<PGMidi>(refCon);
+    PGMidi *self = (PGMidi *)CFBridgingRelease(refCon);
     [self midiNotify:message];
 }
 

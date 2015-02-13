@@ -6,7 +6,6 @@
 #import "PGMidiAllSources.h"
 
 #import "PGMidi.h"
-#import "PGArc.h"
 
 @interface PGMidiAllSources () <PGMidiDelegate, PGMidiSourceDelegate>
 @end
