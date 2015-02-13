@@ -84,6 +84,15 @@ BOOL IsNetworkSession(MIDIEndpointRef ref)
     return self;
 }
 
+const char *ToString(BOOL b) { return b ? "yes":"no"; }
+
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"< PGMidiConnection: name=%@ isNetwork=%s >",
+            self.name, self.isNetworkSession ? "yes" : "no"];
+
+}
+
 @end
 
 //==============================================================================
