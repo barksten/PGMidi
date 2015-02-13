@@ -31,6 +31,7 @@ UInt8 RandomNoteNumber() { return UInt8(rand() / (RAND_MAX / 127)); }
 
 - (void) viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     [self clearTextView];
     [self updateCountLabel];
 

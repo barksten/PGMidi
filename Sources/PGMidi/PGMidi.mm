@@ -350,7 +350,7 @@ void PGMIDIVirtualDestinationReadProc(const MIDIPacketList *pktlist, void *readP
                                                             object:self 
                                                           userInfo:@{PGMidiConnectionKey: virtualSourceDestination}];
 
-        PG_RELEASE(virtualSourceDestination);
+        virtualSourceDestination = nil;
         OSStatus s = MIDIEndpointDispose(virtualSourceEndpoint);
         NSLogError(s, @"Dispose MIDI virtual source");
         virtualSourceEndpoint = 0;
@@ -408,7 +408,7 @@ void PGMIDIVirtualDestinationReadProc(const MIDIPacketList *pktlist, void *readP
                                                             object:self 
                                                           userInfo:@{PGMidiConnectionKey: virtualDestinationSource}];
 
-        PG_RELEASE(virtualDestinationSource);
+        virtualDestinationSource = nil;
         OSStatus s = MIDIEndpointDispose(virtualDestinationEndpoint);
         NSLogError(s, @"Dispose MIDI virtual destination");
         virtualDestinationEnabled = NO;
