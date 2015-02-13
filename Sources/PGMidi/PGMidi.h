@@ -101,10 +101,6 @@ extern NSString * const PGMidiConnectionKey;
 
 /// Class for receiving MIDI input from any MIDI device.
 ///
-/// If you intend your app to support iOS 3.x which does not have CoreMIDI
-/// support, weak link to the CoreMIDI framework, and only create a
-/// PGMidi object if you are running the right version of iOS.
-///
 /// @see PGMidiDelegate
 @interface PGMidi : NSObject
 
