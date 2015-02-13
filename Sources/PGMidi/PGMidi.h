@@ -27,16 +27,12 @@ extern NSString * const PGMidiConnectionKey;
 /// @see PGMidiSource
 /// @see PGMidiDestination
 @interface PGMidiConnection : NSObject
-{
-    PGMidi          *midi;
-    MIDIEndpointRef  endpoint;
-    NSString        *name;
-    BOOL             isNetworkSession;
-}
+
 @property (nonatomic,readonly) PGMidi          *midi;
 @property (nonatomic,readonly) MIDIEndpointRef  endpoint;
 @property (nonatomic,readonly) NSString        *name;
 @property (nonatomic,readonly) BOOL             isNetworkSession;
+
 @end
 
 
@@ -111,19 +107,6 @@ extern NSString * const PGMidiConnectionKey;
 ///
 /// @see PGMidiDelegate
 @interface PGMidi : NSObject
-{
-    MIDIClientRef      client;
-    MIDIPortRef        outputPort;
-    MIDIPortRef        inputPort;
-    NSString          *virtualEndpointName;
-    MIDIEndpointRef    virtualSourceEndpoint;
-    MIDIEndpointRef    virtualDestinationEndpoint;
-    PGMidiSource      *virtualDestinationSource;
-    PGMidiDestination *virtualSourceDestination;
-    NSMutableArray    *sources, *destinations;
-}
-
-+ (BOOL)midiAvailable;
 
 @property (nonatomic,assign)   id<PGMidiDelegate> delegate;
 @property (nonatomic,readonly) NSUInteger         numberOfConnections;

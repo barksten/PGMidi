@@ -168,15 +168,13 @@ void PGMIDIVirtualDestinationReadProc(const MIDIPacketList *pktlist, void *readP
 {
     if ((self = [super initWithMidi:m endpoint:e]))
     {
-        midi     = m;
-        endpoint = e;
     }
     return self;
 }
 
 -(void)flushOutput
 {
-    MIDIFlushOutput(endpoint);
+    MIDIFlushOutput(self.endpoint);
 }
 
 - (void) sendBytes:(const UInt8*)bytes size:(UInt32)size
@@ -193,7 +191,7 @@ void PGMIDIVirtualDestinationReadProc(const MIDIPacketList *pktlist, void *readP
 - (void) sendPacketList:(MIDIPacketList *)packetList
 {
     // Send it
-    OSStatus s = MIDISend(midi.outputPort, endpoint, packetList);
+    OSStatus s = MIDISend(self.midi.outputPort, self.endpoint, packetList);
     NSLogError(s, @"Sending MIDI");
 }
 
@@ -220,7 +218,7 @@ void PGMIDIVirtualDestinationReadProc(const MIDIPacketList *pktlist, void *readP
     }
 
     // Send it
-    OSStatus s = MIDIReceived(endpoint, packetList);
+    OSStatus s = MIDIReceived(self.endpoint, packetList);
     NSLogError(s, @"Sending MIDI");
 }
 
@@ -228,21 +226,23 @@ void PGMIDIVirtualDestinationReadProc(const MIDIPacketList *pktlist, void *readP
 
 //==============================================================================
 
+@interface PGMidi ()
+{
+    MIDIClientRef      client;
+    MIDIPortRef        outputPort;
+    MIDIPortRef        inputPort;
+    MIDIEndpointRef    virtualSourceEndpoint;
+    MIDIEndpointRef    virtualDestinationEndpoint;
+}
+
+@end
+
 @implementation PGMidi
 
 @synthesize delegate;
 @synthesize sources,destinations;
 @synthesize virtualSourceDestination,virtualDestinationSource,virtualEndpointName;
 @dynamic    networkEnabled;
-
-+ (BOOL)midiAvailable
-{
-#if TARGET_IPHONE_SIMULATOR || TARGET_OS_IPHONE
-    return [[[UIDevice currentDevice] systemVersion] floatValue] >= 4.2;
-#else
-    return YES;
-#endif
-}
 
 - (instancetype) init
 {

@@ -3,7 +3,7 @@
 //  PGMidi
 //
 
-#import "PGMidiFind.h"
+#import "PGMidi+FindingConnections.h"
 
 
 @implementation PGMidi (FindingConnections)
