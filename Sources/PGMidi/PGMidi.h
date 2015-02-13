@@ -82,8 +82,6 @@ extern NSString * const PGMidiConnectionKey;
 
 /// Represents a destination for MIDI data identified by CoreMIDI
 @interface PGMidiDestination : PGMidiConnection
-{
-}
 - (void) flushOutput;
 - (void) sendBytes:(const UInt8*)bytes size:(UInt32)size;
 - (void) sendPacketList:(MIDIPacketList *)packetList;
