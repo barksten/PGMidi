@@ -249,7 +249,7 @@ void PGMIDIVirtualDestinationReadProc(const MIDIPacketList *pktlist, void *readP
         s = MIDIOutputPortCreate(client, (CFStringRef)@"PGMidi Output Port", &outputPort);
         NSLogError(s, @"Create output MIDI port");
 
-        s = MIDIInputPortCreate(client, (CFStringRef)@"PGMidi Input Port", PGMIDIReadProc, &self, &inputPort);
+        s = MIDIInputPortCreate(client, (CFStringRef)@"PGMidi Input Port", PGMIDIReadProc, (__bridge void*)self, &inputPort);
         NSLogError(s, @"Create input MIDI port");
 
         [self scanExistingDevices];
