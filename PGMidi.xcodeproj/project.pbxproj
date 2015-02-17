@@ -15,7 +15,6 @@
 		2899E5220DE3E06400AC0155 /* MidiMonitorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2899E5210DE3E06400AC0155 /* MidiMonitorViewController.xib */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		28D7ACF80DDB3853001CB0EB /* MidiMonitorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D7ACF70DDB3853001CB0EB /* MidiMonitorViewController.m */; };
-		C1314AC312FC259B0073005E /* PGMidi+FindingConnections.m in Sources */ = {isa = PBXBuildFile; fileRef = C1314AC112FC259B0073005E /* PGMidi+FindingConnections.m */; };
 		C139406214DF28FA0054551E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C139406114DF28FA0054551E /* README.md */; };
 		C14323221A64162000CEB4F5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C14323211A64162000CEB4F5 /* Default-568h@2x.png */; };
 		C1763E421266F0190032E953 /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1763E411266F0190032E953 /* CoreMIDI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -25,6 +24,7 @@
 		C1763EDC1266FFBE0032E953 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C1763EDB1266FFBE0032E953 /* Icon.png */; };
 		C1763FE312672EEC0032E953 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C1763FE212672EEC0032E953 /* Default.png */; };
 		C1FFC85B12798CAF003DD5CD /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = C1FFC85A12798CAF003DD5CD /* Entitlements.plist */; };
+		F52E13081A93B288002A669B /* Midi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52E13071A93B288002A669B /* Midi.swift */; };
 		F5FA7B3E1A8E9A7F006BA246 /* PGMidiAllSources.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FA7B3D1A8E9A7F006BA246 /* PGMidiAllSources.swift */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +57,7 @@
 		C1763EDB1266FFBE0032E953 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		C1763FE212672EEC0032E953 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		C1FFC85A12798CAF003DD5CD /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
+		F52E13071A93B288002A669B /* Midi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Midi.swift; sourceTree = "<group>"; };
 		F5FA7B3C1A8E9A7E006BA246 /* MidiMonitor-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MidiMonitor-Bridging-Header.h"; sourceTree = "<group>"; };
 		F5FA7B3D1A8E9A7F006BA246 /* PGMidiAllSources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PGMidiAllSources.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -149,6 +150,7 @@
 				C1314ABE12FC259B0073005E /* PGMidiAllSources.h */,
 				C1314ABF12FC259B0073005E /* PGMidiAllSources.m */,
 				F5FA7B3D1A8E9A7F006BA246 /* PGMidiAllSources.swift */,
+				F52E13071A93B288002A669B /* Midi.swift */,
 				C1314AC012FC259B0073005E /* PGMidi+FindingConnections.h */,
 				C1314AC112FC259B0073005E /* PGMidi+FindingConnections.m */,
 				F5FA7B3C1A8E9A7E006BA246 /* MidiMonitor-Bridging-Header.h */,
@@ -251,9 +253,9 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* MidiMonitorAppDelegate.m in Sources */,
 				28D7ACF80DDB3853001CB0EB /* MidiMonitorViewController.m in Sources */,
+				F52E13081A93B288002A669B /* Midi.swift in Sources */,
 				C1763E721266F7F60032E953 /* PGMidi.m in Sources */,
 				F5FA7B3E1A8E9A7F006BA246 /* PGMidiAllSources.swift in Sources */,
-				C1314AC312FC259B0073005E /* PGMidi+FindingConnections.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
